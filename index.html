@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14 февраля ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 2s ease;
+}
+
+h1 { color: #ff3e6c; }
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.yes { background: #ff3e6c; color: white; }
+.yes:hover { background: #ff1e4d; transform: scale(1.1); }
+.no { background: #ddd; position: relative; }
+
+.spotify { margin-top: 20px; }
+.tip { margin-top: 8px; font-size: 13px; color: #888; }
+
+@keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1;} }
+
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear infinite;
+  z-index: 1;
+}
+@keyframes fall { to { transform: translateY(100vh); } }
+
+.confetti{
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  animation: confettiFall 3s linear forwards;
+  z-index: 9999;
+}
+@keyframes confettiFall{
+  to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.pop{
+  position: fixed;
+  font-size: 26px;
+  z-index: 9999;
+  animation: popUp 1.2s ease forwards;
+  pointer-events: none;
+}
+@keyframes popUp{
+  0% { transform: translate(-50%, -50%) scale(0.4); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translate(-50%, -140%) scale(1.2); opacity: 0; }
+}
+
+.carousel {
+  margin-top: 22px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(6px);
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.carousel-title{
+  text-align:center;
+  color:#ff3e6c;
+  margin: 0 0 10px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 14px;
+  transform: translateX(0);
+  transition: transform 700ms ease;
+}
+
+.carousel img {
+  width: 200px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 520px) {
+  .carousel img { width: 150px; height: 105px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Ты пойдёшь со мной на свидание 14 февраля? ❤️</h1>
+
+  <button class="yes" onclick="sayYes()">Ия 💖</button>
+  <button class="no" id="noBtn">Жоқ.</button>
+
+  <div class="spotify">
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/track/3O2nwd7d4p5qdb77lIoIJZ"
+      width="300" height="80" frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+    <div class="tip">🎵 Нажми Play в Spotify</div>
+  </div>
+</div>
+
+<script>
+const couplePhotos = ["janm1.jpeg","janm2.jpeg","janm3.jpeg","janm4.jpeg"];
+
+const noBtn = document.getElementById("noBtn");
+function moveNoBtn() {
+  const w = noBtn.offsetWidth, h = noBtn.offsetHeight;
+  const x = Math.random() * (window.innerWidth - w);
+  const y = Math.random() * (window.innerHeight - h);
+  noBtn.style.position = "fixed";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+noBtn.addEventListener("mouseover", moveNoBtn);
+noBtn.addEventListener("mousedown", moveNoBtn);
+noBtn.addEventListener("touchstart", (e)=>{ e.preventDefault(); moveNoBtn(); }, {passive:false});
+
+function sayYes() {
+  createConfetti();
+  popHearts();
+
+  setTimeout(() => {
+    document.body.innerHTML = `
+      <div style="
+        min-height:100vh;
+        background:linear-gradient(135deg,#ff758c,#ff7eb3);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:26px;
+        box-sizing:border-box;
+        overflow:auto;
+      ">
+        <div style="
+          background:white;
+          max-width:900px;
+          width:100%;
+          padding:26px;
+          border-radius:20px;
+          box-shadow:0 10px 30px rgba(0,0,0,0.3);
+          text-align:left;
+        ">
+          <h1 style="text-align:center;color:#ff3e6c;margin-top:0;">
+            ЖАНЫМ ЖАНЫМ❤️
+          </h1>
+
+          <ol style="font-size:18px;line-height:1.6; padding-left:18px; margin:0;">
+            <li>Мы будем проводить время вместе, потому что мне очень не хватает тебя 🫶</li>
+            <br>
+            <li>
+              Мы пойдём в гончарное дело будем лепить что то своими руками 🏺✨  
+              Это очень уютно сделаем маленькую вещь “на память” ❤️  
+              <br>
+              Место: <b>Yasy</b> — 
+              <a href="https://2gis.kz/almaty/geo/70000001089213656"
+                 target="_blank"
+                 style="color:#ff3e6c;font-weight:bold;">
+                открыть в 2GIS
+              </a>
+            </li>
+            <br>
+            <li>Там будем только ты и я без суеты, только наш вайб 💑</li>
+            <br>
+            <li>
+              Потому что как можно отказать вот ему 😏  
+              <br><br>
+              <img src="men1.jpeg" alt="me"
+                   style="width:220px;max-width:80vw;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,0.3);">
+            </li>
+            <br>
+            <li>
+              Мы будем создавать моменты вместе…  
+              А потом можем погулять в Сайране 🌙✨  
+              <br><br>
+              <img src="cy1.jpg" alt="sairan"
+                   style="width:100%;max-width:480px;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,0.3);">
+            </li>
+            <br>
+            <li>Потому что… почему бы и нет? 😌💗</li>
+            <br>
+            <li>Потому что я хочу, чтобы у нас было больше таких дней: тёплых, настоящих и только наших ❤️</li>
+          </ol>
+
+          <div id="carouselWrap" style="margin-top:22px;"></div>
+
+          <div style="text-align:center;margin-top:14px;font-size:13px;color:#888;">
+            Если фото не видно — проверь, что файлы <b>men1.jpeg</b>, <b>cy1.jpeg</b> и ваши фото
+            (<b>janm1.jpeg...</b>) загружены рядом с <b>index.html</b>.
+          </div>
+        </div>
+      </div>
+    `;
+
+    injectCarousel();
+    startCarousel();
+  }, 400);
+}
+
+function createHearts() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}
+setInterval(createHearts, 300);
+
+function createConfetti() {
+  for (let i = 0; i < 120; i++) {
+    const conf = document.createElement("div");
+    conf.className = "confetti";
+    conf.style.left = Math.random() * 100 + "vw";
+    conf.style.top = "-10px";
+    conf.style.backgroundColor = ["#ff0","#0ff","#f0f","#0f0","#f00","#ff69b4"][Math.floor(Math.random()*6)];
+    conf.style.animationDuration = (2 + Math.random() * 2.5) + "s";
+    document.body.appendChild(conf);
+    setTimeout(() => conf.remove(), 3000);
+  }
+}
+
+function popHearts() {
+  const cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+  for (let i = 0; i < 18; i++) {
+    const h = document.createElement("div");
+    h.className = "pop";
+    h.textContent = "💖";
+    h.style.left = (cx + (Math.random() * 180 - 90)) + "px";
+    h.style.top  = (cy + (Math.random() * 120 - 60)) + "px";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 1200);
+  }
+}
+
+let carIndex = 0;
+let carTimer = null;
+
+function injectCarousel() {
+  const wrap = document.getElementById("carouselWrap");
+  if (!wrap) return;
+
+  const imgs = couplePhotos.map(src => `<img src="${src}" alt="photo">`).join("");
+
+  wrap.innerHTML = `
+    <div class="carousel">
+      <h3 class="carousel-title">Наши моменты 💖</h3>
+      <div class="carousel-track" id="carouselTrack">
+        ${imgs}
+      </div>
+    </div>
+  `;
+}
+
+function startCarousel() {
+  const track = document.getElementById("carouselTrack");
+  if (!track) return;
+
+  if (couplePhotos.length < 2) return;
+
+  clearInterval(carTimer);
+  carIndex = 0;
+
+  carTimer = setInterval(() => {
+    const firstImg = track.querySelector("img");
+    if (!firstImg) return;
+
+    const imgW = firstImg.getBoundingClientRect().width;
+    const gap = 14;
+
+    carIndex++;
+    if (carIndex >= couplePhotos.length) carIndex = 0;
+
+    track.style.transform = `translateX(${-carIndex * (imgW + gap)}px)`;
+  }, 2400);
+}
+</script>
+
+</body>
+</html>
